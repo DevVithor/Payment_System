@@ -5,6 +5,7 @@ import { deletePlanController } from "./infra/controllers/plans/delete";
 import { createSubscriptionsController } from "./infra/controllers/subscriptions/create";
 import { createPaymentCardController } from "./infra/controllers/payment/create";
 import { updatePlanController } from "./infra/controllers/plans/update";
+import { findSubscriptionController } from "./infra/controllers/subscriptions/find";
 
 const router = express.Router()
 
@@ -27,5 +28,8 @@ router
     .put("/v1/plan/:external_id", (req, res) =>
         updatePlanController.execute(req, res)
     )
+    .get("/find/subscription", (req, res) => {
+        findSubscriptionController.execute(req, res)
+    })
 
 export default router;
