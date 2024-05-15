@@ -4,5 +4,5 @@ import { FindPlanUseCase } from "./FindPlanUseCase";
 
 
 export const findPlanUseCase = new FindPlanUseCase(
-    efipay, prismaClient
+    prismaClient
 )
