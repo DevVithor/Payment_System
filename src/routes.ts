@@ -13,11 +13,11 @@ router
     .get("/v1/plans", (req, res) =>
         findPlanController.execute(req, res)
     )
+    .get("/find/subscription", (req, res) =>
+        findSubscriptionController.execute(req, res)
+    )
     .post("/plans/create/", (req, res) =>
         createPlanController.execute(req, res)
-    )
-    .delete("/v1/plan/:id", (req, res) =>
-        deletePlanController.execute(req, res)
     )
     .post("/v1/plan/:external_id/subscription", (req, res) =>
         createSubscriptionsController.execute(req, res)
@@ -25,11 +25,11 @@ router
     .post("/v1/subscription/:subscription_id/pay", (req, res) =>
         createPaymentCardController.execute(req, res)
     )
+    .delete("/v1/plan/:id", (req, res) =>
+        deletePlanController.execute(req, res)
+    )
     .put("/v1/plan/:external_id", (req, res) =>
         updatePlanController.execute(req, res)
     )
-    .get("/find/subscription", (req, res) => {
-        findSubscriptionController.execute(req, res)
-    })
 
 export default router;
