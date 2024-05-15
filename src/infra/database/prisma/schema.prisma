@@ -1,0 +1,47 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Plan {
+    id          Int    @id @default(autoincrement())
+    name        String
+    repeats     Int
+    interval    Int
+    external_id Int
+
+    @@map("planos")
+}
+
+model Subscription {
+    id             Int    @id @default(autoincrement())
+    subscriptionId Int
+    chargeId       Int
+    status         String
+    total          Int
+    parcel         Int
+
+    @@map("Inscrição")
+}
+
+model Payment {
+    id                 Int    @id @default(autoincrement())
+    subscriptionId     Int
+    subscriptionStatus String
+    planId             Int
+    interval           Int
+    repeats            Int
+    chargeId           Int
+    chargeStatus       String
+    parcel             Int
+    total              Int
+    firstExecution     String
+    subscriptionTotal  Int
+    payment            String
+
+    @@map("pagamento")
+}

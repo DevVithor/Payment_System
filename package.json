@@ -1,0 +1,34 @@
+{
+  "name": "payment-system",
+  "version": "1.0.0",
+  "description": "It's my first project with node, and implemantation one payment API",
+  "main": "index.js",
+  "prisma": {
+    "schema": "./src/infra/database/prisma/schema.prisma"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "jsdom": "^24.0.0",
+    "payment-token-efi": "^2.1.0",
+    "prisma": "^5.13.0",
+    "sdk-typescript-apis-efi": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/http-errors": "^2.0.4",
+    "@types/node": "^20.12.7",
+    "studio": "^0.13.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  }
+}
