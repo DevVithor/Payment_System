@@ -4,6 +4,7 @@ import { findPlanController } from "./infra/controllers/plans/find";
 import { deletePlanController } from "./infra/controllers/plans/delete";
 import { createSubscriptionsController } from "./infra/controllers/subscriptions/create";
 import { createPaymentCardController } from "./infra/controllers/payment/create";
+import { updatePlanController } from "./infra/controllers/plans/update";
 
 const router = express.Router()
 
@@ -22,6 +23,9 @@ router
     )
     .post("/v1/subscription/:subscription_id/pay", (req, res) =>
         createPaymentCardController.execute(req, res)
+    )
+    .put("/v1/plan/:external_id", (req, res) =>
+        updatePlanController.execute(req, res)
     )
 
 export default router;
