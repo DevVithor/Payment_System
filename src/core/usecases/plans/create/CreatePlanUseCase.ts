@@ -24,7 +24,7 @@ export class CreatePlanUseCase {
                     name: data.name,
                     repeats: data.repeats,
                     interval: data.interval,
-                    external_id: createPlan.data.plan_id
+                    external_id: createPlan.data.external_id
                 }
             })
 

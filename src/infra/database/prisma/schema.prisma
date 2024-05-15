@@ -8,29 +8,31 @@ generator client {
 }
 
 model Plan {
-    id          Int    @id @default(autoincrement())
-    name        String
-    repeats     Int
-    interval    Int
-    external_id Int
+    id            Int            @id @default(autoincrement())
+    name          String
+    repeats       Int
+    interval      Int
+    external_id   Int            @unique
+    subscriptions Subscription[]
 
     @@map("planos")
 }
 
 model Subscription {
-    id             Int    @id @default(autoincrement())
-    subscriptionId Int
-    chargeId       Int
-    status         String
-    total          Int
-    parcel         Int
+    id       Int       @id @default(autoincrement())
+    chargeId Int
+    status   String
+    total    Int
+    parcel   Int
+    Payment  Payment[]
+    Plan     Plan?     @relation(fields: [planId], references: [external_id])
+    planId   Int?
 
     @@map("Inscrição")
 }
 
 model Payment {
-    id                 Int    @id @default(autoincrement())
-    subscriptionId     Int
+    id                 Int           @id @default(autoincrement())
     subscriptionStatus String
     planId             Int
     interval           Int
@@ -42,6 +44,8 @@ model Payment {
     firstExecution     String
     subscriptionTotal  Int
     payment            String
+    subscription       Subscription? @relation(fields: [subscriptionId], references: [id])
+    subscriptionId     Int?          @map("subscription_id")
 
     @@map("pagamento")
 }

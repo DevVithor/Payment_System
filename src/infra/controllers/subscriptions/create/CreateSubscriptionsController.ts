@@ -9,7 +9,7 @@ export class CreateSubscriptionsController {
         const external_id = req.params.external_id
         const data = req.body
 
-        const createSubscriptio = this.createSubs.execute(Number(external_id), data)
+        const createSubscriptio = await this.createSubs.execute(Number(external_id), data)
         res.status(201).json(createSubscriptio)
     }
 }

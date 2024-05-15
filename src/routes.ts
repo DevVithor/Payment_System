@@ -28,6 +28,9 @@ router
     .delete("/v1/plan/:id", (req, res) =>
         deletePlanController.execute(req, res)
     )
+    // .delete("/v1/subscription/:subscription_id", (req, res) =>
+    //     deleteSubsCriptionController.execute(req, res)
+    // )
     .put("/v1/plan/:external_id", (req, res) =>
         updatePlanController.execute(req, res)
     )

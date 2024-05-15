@@ -41,11 +41,11 @@ export class CreateSubscriptionUseCase {
 
                     const createSubscriptionDb = await this.prismaClient.subscription.create({
                         data: {
-                            subscriptionId: createSubscription.data.subscription_id,
                             chargeId: charges.charge_id,
                             status: charges.status,
                             total: charges.total,
-                            parcel: charges.parcel
+                            parcel: charges.parcel,
+                            planId: findPlan.external_id
                         }
                     })
                     return createSubscriptionDb
