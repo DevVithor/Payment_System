@@ -6,9 +6,9 @@ export class FindPlanController {
 
     async execute(req: Request, res: Response) {
 
-        const { name, limit, offset } = req.query as { name: string, limit: string, offset: string }
+        const data = req.body
 
-        const findPlan = await this.findPlan.execute({ name, limit, offset })
+        const findPlan = await this.findPlan.execute(data)
         res.status(200).json(findPlan)
 
     }
