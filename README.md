@@ -2,6 +2,8 @@
 
 ### 📖 Sobre o Projeto
 
+<img src="https://github.com/DevVithor/Payment_System/assets/142769545/8b1c42da-fe90-4c5f-a411-154192285135" alt="efi payment">
+
 O projeto é uma integração a Api EFI-PAY para a criação e gestão de planos de assinatura.
 Desenvolvido com TypeScript e Docker, oferece automação eficiente, armazenamento seguro de dados e escalabilidade,
 garantindo que as empresas possam adaptar seus modelos de negócio baseados em assinaturas de forma ágil e confiável.
