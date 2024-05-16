@@ -8,35 +8,38 @@ generator client {
 }
 
 model Plan {
-    id            Int            @id @default(autoincrement())
-    name          String
-    repeats       Int
-    interval      Int
-    external_id   Int            @unique
-    subscriptions Subscription[]
+    id         Int    @id @default(autoincrement())
+    name       String
+    repeat     Int
+    interval   Int
+    externalId Int    @unique @map("external_id")
+
+    subscription Subscription[]
 
     @@map("planos")
 }
 
 model Subscription {
-    id       Int       @id @default(autoincrement())
-    chargeId Int
-    status   String
-    total    Int
-    parcel   Int
-    Payment  Payment[]
-    Plan     Plan?     @relation(fields: [planId], references: [external_id])
-    planId   Int?
+    id         Int    @id @default(autoincrement())
+    chargeId   Int    @map("charge_id")
+    status     String
+    total      Int
+    parcel     Int
+    planId     Int?   @map("plan_id")
+    externalId Int    @unique @map("external_id")
 
-    @@map("Inscrição")
+    payment Payment[]
+    plan    Plan?     @relation(fields: [planId], references: [externalId])
+
+    @@map("Inscricoes")
 }
 
 model Payment {
-    id                 Int           @id @default(autoincrement())
+    id                 Int    @id @default(autoincrement())
     subscriptionStatus String
     planId             Int
     interval           Int
-    repeats            Int
+    repeat             Int
     chargeId           Int
     chargeStatus       String
     parcel             Int
@@ -44,8 +47,9 @@ model Payment {
     firstExecution     String
     subscriptionTotal  Int
     payment            String
-    subscription       Subscription? @relation(fields: [subscriptionId], references: [id])
-    subscriptionId     Int?          @map("subscription_id")
+    subscriptionId     Int?   @map("subscription_id")
 
-    @@map("pagamento")
+    subscription Subscription? @relation(fields: [subscriptionId], references: [externalId])
+
+    @@map("pagamentos")
 }
