@@ -6,12 +6,12 @@ import { UpdatePlanDTO } from "./UpdatePlanDTO";
 export class UpdatePlanUseCase {
     constructor(private client: EfiPay, private prisma: PrismaClient) { }
 
-    async execute(external_id: number, data: UpdatePlanDTO) {
+    async execute(externalId: number, data: UpdatePlanDTO) {
 
         try {
 
             const params = {
-                id: external_id
+                id: externalId
             }
 
             const body = {
@@ -22,7 +22,7 @@ export class UpdatePlanUseCase {
 
             const findPlandb = await this.prisma.plan.findFirst({
                 where: {
-                    external_id
+                    externalId
                 }
             })
 
