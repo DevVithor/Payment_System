@@ -89,6 +89,10 @@ npx prisma migrate dev
   }
 }
 ```
+#### Relacionamento(modelo conceitual):
+<img src="https://github.com/DevVithor/Payment_System/assets/142769545/bb66a372-2ee7-49c5-b457-d6aeecd0da1f)" alt="concept model">
 
+- Varios planos para uma Inscrição (N > 1)
+- Varias inscrições para um Pagamento (1 > N)
 
 
