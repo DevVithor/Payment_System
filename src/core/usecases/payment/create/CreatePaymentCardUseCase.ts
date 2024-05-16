@@ -1,5 +1,5 @@
 import EfiPay from "sdk-typescript-apis-efi";
-import { PaymentCardDTO } from "./PaymentCardDTO";
+import { PaymentCardDTO } from "../../../../dtos/PaymentCardDTO";
 import { PrismaClient } from "@prisma/client";
 
 export class CreatePaymentCardUseCase {

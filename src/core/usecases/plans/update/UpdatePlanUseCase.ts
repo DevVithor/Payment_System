@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import EfiPay from "sdk-typescript-apis-efi";
 import BadRequest from "../../../../handler/error/BadRequest";
-import { UpdatePlanDTO } from "./UpdatePlanDTO";
+import { UpdatePlanDTO } from "../../../../dtos/UpdatePlanDTO";
 
 export class UpdatePlanUseCase {
     constructor(private client: EfiPay, private prisma: PrismaClient) { }

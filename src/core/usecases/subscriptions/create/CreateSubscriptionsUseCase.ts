@@ -1,5 +1,5 @@
 import EfiPay from "sdk-typescript-apis-efi";
-import { SubscriptionDTO } from "./SubscriptionDTO";
+import { SubscriptionDTO } from "../../../../dtos/SubscriptionDTO";
 import { PrismaClient } from "@prisma/client";
 
 export class CreateSubscriptionUseCase {

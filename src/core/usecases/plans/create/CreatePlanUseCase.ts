@@ -1,5 +1,5 @@
 import EfiPay from "sdk-typescript-apis-efi";
-import { PlanDTO } from "./PlanDTO";
+import { PlanDTO } from "../../../../dtos/PlanDTO";
 import { PrismaClient } from "@prisma/client";
 
 export class CreatePlanUseCase {
