@@ -7,13 +7,15 @@
     "schema": "./src/infra/database/prisma/schema.prisma"
   },
   "scripts": {
-    "dev": "tsx watch ./index.ts"
+    "dev": "tsx watch ./index.ts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "Vithor Mitsyusohi Saito",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.13.0",
+    "either": "^0.0.1",
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "jsdom": "^24.0.0",
