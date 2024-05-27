@@ -7,20 +7,31 @@ generator client {
     provider = "prisma-client-js"
 }
 
+model User {
+    id        Int      @id @default(autoincrement())
+    name      String
+    password  String
+    email     String   @unique
+    phone     String   @db.VarChar(14)
+    adress    String?  @db.VarChar(200)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
 model Plan {
-    id          Int    @id @default(autoincrement())
-    name        String
-    repeats     Int
-    interval    Int
-    external_id Int
+    id         Int    @id @default(autoincrement())
+    name       String
+    repeat     Int
+    interval   Int
+    externalId Int    @map("extenal_id")
 
     @@map("planos")
 }
 
 model Subscription {
     id             Int    @id @default(autoincrement())
-    subscriptionId Int
-    chargeId       Int
+    subscriptionId Int    @map("subscription_id")
+    chargeId       Int    @map("charge_id")
     status         String
     total          Int
     parcel         Int
@@ -30,17 +41,17 @@ model Subscription {
 
 model Payment {
     id                 Int    @id @default(autoincrement())
-    subscriptionId     Int
-    subscriptionStatus String
-    planId             Int
+    subscriptionId     Int    @map("subscription_id")
+    subscriptionStatus String @map("subscription_status")
+    planId             Int    @map("plan_id")
     interval           Int
-    repeats            Int
-    chargeId           Int
-    chargeStatus       String
+    repeat             Int
+    chargeId           Int    @map("charge_id")
+    chargeStatus       String @map("charge_status")
     parcel             Int
     total              Int
-    firstExecution     String
-    subscriptionTotal  Int
+    firstExecution     String @map("first_execution")
+    subscriptionTotal  Int    @map("subscription_total")
     payment            String
 
     @@map("pagamento")
