@@ -23,7 +23,7 @@ export class CreateSubscriptionUseCase {
 
                 const findPlan = await this.prismaClient.plan.findFirst({
                     where: {
-                        external_id: external_id
+                        externalId: external_id
                     }
                 })
 
@@ -32,7 +32,7 @@ export class CreateSubscriptionUseCase {
                 }
 
                 const params = {
-                    id: findPlan.external_id
+                    id: findPlan.externalId
                 }
 
                 const createSubscription = await this.client.createSubscription(params, subscriptionBody)

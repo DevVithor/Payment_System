@@ -22,9 +22,9 @@ export class CreatePlanUseCase {
             const savePlan = await this.prismaClient.plan.create({
                 data: {
                     name: data.name,
-                    repeats: data.repeats,
+                    repeat: data.repeats,
                     interval: data.interval,
-                    external_id: createPlan.data.plan_id
+                    externalId: createPlan.data.plan_id
                 }
             })
 
