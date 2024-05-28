@@ -44,7 +44,7 @@ export class CreatePaymentCardUseCase {
                     subscriptionStatus: definePaymentCard.data.status,
                     planId: definePaymentCard.data.plan.id,
                     interval: definePaymentCard.data.plan.interval,
-                    repeats: definePaymentCard.data.plan.repeats,
+                    repeat: definePaymentCard.data.plan.repeats,
                     chargeId: definePaymentCard.data.charge.id,
                     chargeStatus: definePaymentCard.data.charge.status,
                     parcel: definePaymentCard.data.charge.parcel,
