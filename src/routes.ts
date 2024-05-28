@@ -6,6 +6,10 @@ import { createSubscriptionsController } from "./infra/controllers/subscriptions
 import { createPaymentCardController } from "./infra/controllers/payment/create";
 import { updatePlanController } from "./infra/controllers/plans/update";
 import { findSubscriptionController } from "./infra/controllers/subscriptions/find";
+import { createUserController } from "./infra/controllers/user";
+import { authLoginController } from "./infra/controllers/login/create";
+import { getUserController } from "./infra/controllers/login/find";
+import { authMiddleware } from "./core/middleware/authMiddleware";
 
 const router = express.Router()
 
@@ -25,6 +29,15 @@ router
     .post("/v1/subscription/:subscription_id/pay", (req, res) =>
         createPaymentCardController.execute(req, res)
     )
+    .post("/register", (req, res) => {
+        createUserController.execute(req, res)
+    })
+    .post("/login", (req, res) => {
+        authLoginController.execute(req, res)
+    })
+    .get("/profile", authMiddleware, (req, res) => {
+        getUserController.execute(req, res)
+    })
     .delete("/v1/plan/:id", (req, res) =>
         deletePlanController.execute(req, res)
     )
