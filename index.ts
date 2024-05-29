@@ -1,6 +1,7 @@
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
+import 'express-async-errors'
 import routes from "./src/routes";
-
+import { errorMiddleware } from "./src/core/middleware/error";
 
 const app = express();
 const port = 3333
@@ -8,13 +9,7 @@ const port = 3333
 app.use(express.json())
 app.use(routes)
 
-app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-    if (error) {
-        return res.status(500).json({ message: "Error: " + error.message });
-    }
-    next();
-})
-
+app.use(errorMiddleware)
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)
 })
