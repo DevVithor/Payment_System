@@ -1,7 +1,7 @@
-import ErrorHandler from "./Handler";
+import ErrorHandler from "./ErrorHandler";
 
-export default class Unauthorized extends ErrorHandler {
+export class Unauthorized extends ErrorHandler {
     constructor(message: string) {
-        super(message, "Not Authorized", 401)
+        super(message, 500)
     }
 }
