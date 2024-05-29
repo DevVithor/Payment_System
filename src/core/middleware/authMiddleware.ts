@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
 import { prismaClient } from "../../lib/prismaclient";
 import { NextFunction, Request, Response } from "express";
-import Unauthorized from "../../handler/error/Unauthorized";
+import { Unauthorized } from "../../handler/error/Unauthorized";
 
 type JwtPayload = {
     id: number
