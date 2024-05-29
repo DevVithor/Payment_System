@@ -1,15 +1,18 @@
 import { DeletePlanUseCase } from "../../../../core/usecases/plans/delete/DeletePlanUseCase";
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
 
 export class DeletePlanController {
     constructor(private deletePlan: DeletePlanUseCase) { }
 
-    async execute(req: Request, res: Response) {
+    async execute(req: Request, res: Response, next: NextFunction) {
+        try {
+            const id = req.params.id
 
-        const id = req.params.id
+            const deletePlan = await this.deletePlan.execute(Number(id))
+            res.status(200).json(deletePlan)
 
-        const deletePlan = await this.deletePlan.execute(Number(id))
-        res.status(200).json(deletePlan)
-
+        } catch (error) {
+            next(error)
+        }
     }
 }
