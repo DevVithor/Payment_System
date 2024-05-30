@@ -4,15 +4,12 @@ import { NextFunction, Request, Response } from "express"
 export class DeletePlanController {
     constructor(private deletePlan: DeletePlanUseCase) { }
 
-    async execute(req: Request, res: Response, next: NextFunction) {
-        try {
-            const id = req.params.id
+    async execute(req: Request, res: Response) {
 
-            const deletePlan = await this.deletePlan.execute(Number(id))
-            res.status(200).json(deletePlan)
+        const id = req.params.id
 
-        } catch (error) {
-            next(error)
-        }
+        const deletePlan = await this.deletePlan.execute(Number(id))
+        res.status(200).json(deletePlan)
+
     }
 }

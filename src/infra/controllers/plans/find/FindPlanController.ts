@@ -4,13 +4,9 @@ import { NextFunction, Request, Response } from "express"
 export class FindPlanController {
     constructor(private findPlan: FindPlanUseCase) { }
 
-    async execute(req: Request, res: Response, next: NextFunction) {
-        try {
-            const findPlan = await this.findPlan.execute()
-            res.status(200).json(findPlan)
+    async execute(req: Request, res: Response) {
 
-        } catch (error) {
-            next(error)
-        }
+        const findPlan = await this.findPlan.execute()
+        res.status(200).json(findPlan)
     }
 }

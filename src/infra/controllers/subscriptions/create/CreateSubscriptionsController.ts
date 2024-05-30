@@ -4,15 +4,13 @@ import { NextFunction, Request, Response } from "express"
 export class CreateSubscriptionsController {
     constructor(private createSubs: CreateSubscriptionUseCase) { }
 
-    async execute(req: Request, res: Response, next: NextFunction) {
-        try {
-            const external_id = req.params.external_id
-            const data = req.body
+    async execute(req: Request, res: Response) {
 
-            const createSubscriptio = this.createSubs.execute(Number(external_id), data)
-            res.status(201).json(createSubscriptio)
-        } catch (error) {
-            next(error)
-        }
+        const external_id = req.params.external_id
+        const data = req.body
+
+        const createSubscriptio = this.createSubs.execute(Number(external_id), data)
+        res.status(201).json(createSubscriptio)
+
     }
 }

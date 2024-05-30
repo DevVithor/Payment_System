@@ -7,30 +7,25 @@ export class CreatePlanUseCase {
 
     async execute(data: PlanDTO) {
 
-        try {
+        const params = {}
 
-            const params = {}
-
-            const body = {
-                name: data.name,
-                repeats: data.repeats,
-                interval: data.repeats
-            }
-
-            const createPlan = await this.client.createPlan(params, body)
-
-            const savePlan = await this.prismaClient.plan.create({
-                data: {
-                    name: data.name,
-                    repeat: data.repeats,
-                    interval: data.interval,
-                    externalId: createPlan.data.plan_id
-                }
-            })
-
-            return savePlan
-        } catch (error) {
-            console.log(error)
+        const body = {
+            name: data.name,
+            repeats: data.repeats,
+            interval: data.interval
         }
+
+        const createPlan = await this.client.createPlan(params, body)
+
+        const savePlan = await this.prismaClient.plan.create({
+            data: {
+                name: data.name,
+                repeat: data.repeats,
+                interval: data.interval,
+                externalId: createPlan.data.plan_id
+            }
+        })
+
+        return savePlan
     }
 }

@@ -4,15 +4,12 @@ import { NextFunction, Request, Response } from "express"
 export class CreatePlanController {
     constructor(private createPlan: CreatePlanUseCase) { }
 
-    async execute(req: Request, res: Response, next: NextFunction) {
-        try {
-            const data = req.body
+    async execute(req: Request, res: Response) {
 
-            const createPlan = await this.createPlan.execute(data)
-            res.status(201).json(createPlan)
+        const data = req.body
 
-        } catch (error) {
-            console.log(error)
-        }
+        const createPlan = await this.createPlan.execute(data)
+        res.status(201).json(createPlan)
+
     }
 }

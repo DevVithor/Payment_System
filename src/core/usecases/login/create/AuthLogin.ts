@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import jwt from 'jsonwebtoken'
 import bcrypt from "bcrypt"
-import BadRequest from "../../../../handler/error/BadRequest";
+import { Unauthorized } from "../../../../handler/error/Unauthorized";
 
 export class AuthLogin {
     constructor(private client: PrismaClient) { }
@@ -15,13 +15,13 @@ export class AuthLogin {
         })
 
         if (!findUser) {
-            throw new BadRequest("Email ou Senha inválidos!")
+            throw new Unauthorized("Email ou Senha inválidos!")
         }
 
         const verifyPass = await bcrypt.compare(password, findUser.password)
 
         if (!verifyPass) {
-            throw new BadRequest("Email ou Senha inválidos")
+            throw new Unauthorized("Email ou Senha inválidos")
         }
 
         const token = jwt.sign({ id: findUser.id }, process.env.SECRET_KEY ?? '', { expiresIn: '30m' })

@@ -37,7 +37,6 @@ export class CreatePaymentCardUseCase {
             };
             const definePaymentCard = await this.client.defineSubscriptionPayMethod(params, body)
 
-            console.log(definePaymentCard.data.plan.id)
             const transactionData = await this.prismaClient.payment.create({
                 data: {
                     subscriptionId: definePaymentCard.data.subscription_id,
