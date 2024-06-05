@@ -23,7 +23,9 @@
     "jsonwebtoken": "^9.0.2",
     "payment-token-efi": "^2.1.0",
     "prisma": "^5.13.0",
-    "sdk-typescript-apis-efi": "^1.0.2"
+    "sdk-typescript-apis-efi": "^1.0.2",
+    "zod": "^3.23.8",
+    "zod-validation-error": "^3.3.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
