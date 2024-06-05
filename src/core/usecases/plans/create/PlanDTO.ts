@@ -1,5 +1,5 @@
 export interface PlanDTO {
     name: string,
-    repeats: number,
+    repeat: number,
     interval: number
 }
