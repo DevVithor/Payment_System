@@ -1,5 +1,6 @@
+import { PlanSchema } from "../../../../core/entities/PlanSchema";
 import { CreatePlanUseCase } from "../../../../core/usecases/plans/create/CreatePlanUseCase";
-import { NextFunction, Request, Response } from "express"
+import { Request, Response } from "express"
 
 export class CreatePlanController {
     constructor(private createPlan: CreatePlanUseCase) { }
@@ -8,7 +9,10 @@ export class CreatePlanController {
 
         const data = req.body
 
-        const createPlan = await this.createPlan.execute(data)
+        const dataValidation = PlanSchema.parse(data)
+
+        const createPlan = await this.createPlan.execute(dataValidation)
+
         res.status(201).json(createPlan)
 
     }
