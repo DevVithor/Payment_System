@@ -8,7 +8,7 @@
 ALTER TABLE `planos` DROP FOREIGN KEY `planos_subscriptionId_fkey`;
 
 -- AlterTable
-ALTER TABLE `inscrição` ADD COLUMN `planId` INTEGER NULL;
+ALTER TABLE `Inscrição` ADD COLUMN `planId` INTEGER NULL;
 
 -- AlterTable
 ALTER TABLE `planos` DROP COLUMN `subscriptionId`;

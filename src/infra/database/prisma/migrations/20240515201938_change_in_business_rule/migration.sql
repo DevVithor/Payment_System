@@ -11,7 +11,7 @@
 ALTER TABLE `planos` DROP FOREIGN KEY `planos_subscriptionId_fkey`;
 
 -- AlterTable
-ALTER TABLE `inscrição` DROP PRIMARY KEY,
+ALTER TABLE `Inscrição` DROP PRIMARY KEY,
     DROP COLUMN `subscriptionId`,
     MODIFY `id` VARCHAR(191) NOT NULL,
     ADD PRIMARY KEY (`id`);

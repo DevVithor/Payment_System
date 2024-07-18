@@ -8,13 +8,13 @@
 
 */
 -- DropForeignKey
-ALTER TABLE `inscrição` DROP FOREIGN KEY `Inscrição_planId_fkey`;
+ALTER TABLE `Inscrição` DROP FOREIGN KEY `Inscrição_planId_fkey`;
 
 -- DropForeignKey
 ALTER TABLE `pagamento` DROP FOREIGN KEY `pagamento_subscription_id_fkey`;
 
 -- AlterTable
-ALTER TABLE `inscrição` DROP PRIMARY KEY,
+ALTER TABLE `Inscrição` DROP PRIMARY KEY,
     MODIFY `id` INTEGER NOT NULL AUTO_INCREMENT,
     ADD PRIMARY KEY (`id`);
 

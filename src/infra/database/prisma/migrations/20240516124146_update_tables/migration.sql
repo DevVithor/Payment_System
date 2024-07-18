@@ -10,7 +10,7 @@
 ALTER TABLE `pagamento` DROP FOREIGN KEY `pagamento_subscription_id_fkey`;
 
 -- AlterTable
-ALTER TABLE `inscrição` ADD COLUMN `subscription_id` INTEGER NOT NULL;
+ALTER TABLE `Inscrição` ADD COLUMN `subscription_id` INTEGER NOT NULL;
 
 -- AlterTable
 ALTER TABLE `pagamento` DROP COLUMN `subscription_id`,

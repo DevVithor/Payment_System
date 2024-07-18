@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE `Subscription` (
+CREATE TABLE `subscription` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `subscriptionId` INTEGER NOT NULL,
     `chargeId` INTEGER NOT NULL,

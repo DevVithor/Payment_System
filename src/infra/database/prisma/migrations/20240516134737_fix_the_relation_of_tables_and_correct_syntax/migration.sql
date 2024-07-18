@@ -8,7 +8,7 @@
 
 */
 -- DropForeignKey
-ALTER TABLE `inscrição` DROP FOREIGN KEY `Inscrição_planId_fkey`;
+ALTER TABLE `Inscrição` DROP FOREIGN KEY `Inscrição_planId_fkey`;
 
 -- DropForeignKey
 ALTER TABLE `pagamento` DROP FOREIGN KEY `pagamento_subscriptionId_fkey`;
@@ -18,7 +18,7 @@ ALTER TABLE `planos` DROP COLUMN `repeats`,
     ADD COLUMN `repeat` INTEGER NOT NULL;
 
 -- DropTable
-DROP TABLE `inscrição`;
+DROP TABLE `Inscrição`;
 
 -- DropTable
 DROP TABLE `pagamento`;
