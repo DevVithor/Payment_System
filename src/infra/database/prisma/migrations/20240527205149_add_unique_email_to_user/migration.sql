@@ -12,4 +12,4 @@ ALTER TABLE `user` DROP COLUMN `cpf`,
     MODIFY `adress` VARCHAR(200) NULL;
 
 -- CreateIndex
-CREATE UNIQUE INDEX `User_email_key` ON `User`(`email`);
+CREATE UNIQUE INDEX `User_email_key` ON `user`(`email`);

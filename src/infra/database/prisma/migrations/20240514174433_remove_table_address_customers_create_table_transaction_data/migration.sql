@@ -15,7 +15,7 @@ DROP TABLE `clientes`;
 DROP TABLE `endereços de cobrança`;
 
 -- CreateTable
-CREATE TABLE `TransactionData` (
+CREATE TABLE `transactionData` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `subscriptionId` INTEGER NOT NULL,
 

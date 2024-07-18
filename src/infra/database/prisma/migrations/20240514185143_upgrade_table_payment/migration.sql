@@ -5,7 +5,7 @@
 
 */
 -- DropTable
-DROP TABLE `transactiondata`;
+DROP TABLE `transactionData`;
 
 -- CreateTable
 CREATE TABLE `pagamento` (

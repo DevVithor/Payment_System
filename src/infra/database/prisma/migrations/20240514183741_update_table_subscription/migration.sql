@@ -8,7 +8,7 @@
 DROP TABLE `subscription`;
 
 -- CreateTable
-CREATE TABLE `Inscrição` (
+CREATE TABLE `inscrição` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `subscriptionId` INTEGER NOT NULL,
     `chargeId` INTEGER NOT NULL,
