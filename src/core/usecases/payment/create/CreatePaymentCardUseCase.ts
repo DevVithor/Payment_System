@@ -1,8 +1,6 @@
 import EfiPay from "sdk-typescript-apis-efi";
 import { PaymentCardDTO } from "./PaymentCardDTO";
 import { PrismaClient } from "@prisma/client";
-import BadRequest from "../../../../handler/error/BadRequest";
-import { efipay } from "../../../../lib/efipay";
 
 export class CreatePaymentCardUseCase {
     constructor(private client: EfiPay, private prismaClient: PrismaClient) { }
@@ -35,6 +33,8 @@ export class CreatePaymentCardUseCase {
                 },
             },
         };
+        console.log(body)
+
         const definePaymentCard = await this.client.defineSubscriptionPayMethod(params, body)
 
         const transactionData = await this.prismaClient.payment.create({
